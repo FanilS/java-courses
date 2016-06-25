@@ -1,36 +1,81 @@
 /**
-	Класс реализует калькулятор
-*/
+ * Created by Fanil on 25.06.2016.
+ */
+/**
+ Класс реализует калькулятор
+ */
 public class Calculator {
 
-	/** 
-		Результат вычисления
-	*/
-	private int result;
-	
+/*    Метод реализует анализ какую математическую операцию должен выполнить калькулятор*/
+    public void calc(double a, String o, double b) {
+        if (o.equals("+")) {
+            System.out.println(a + " + " + b + " = " + add(a,b));
+            return;
+        }
+        if (o.equals("-")) {
+            System.out.println(a + " - " + b + " = " + sub(a,b));
+            return;
+        }
+        if (o.equals("*")) {
+            System.out.println(a + " * " + b + " = " + mul(a,b));
+            return;
+        }
+        if (o.equals("/")) {
+            System.out.println(a + " / " + b + " = " + div(a,b));
+            return;
+        }
+        System.out.println("Unknown operation");
+    }
+
+//    public double add(double a, double b) {
+//        result = a+b;
+//        return a + b;
+//    }
+
+    public double sub(double a, double b) {
+        result = a-b;
+        return a - b;
+    }
+
+    public double mul(double a, double b) {
+        result = a*b;
+        return a * b;
+    }
+
+    public double div(double a, double b) {
+        result = a/b;
+        return a / b;
+    }
+
+    /**
+     Результат вычисления
+     */
+    private double result;
+
 	/**
 		Суммируем аргументы
 		@param params Аргументы суммирования
 	*/
-	public void add(int ... params) {
-		for (Integer param : params) {
+	public double add(double ... params) {
+		for (double param : params) {
 			this.result += param;
 		}
+        return this.result;
 	}
 
-	/**
-		Получить результат.
-		@return результат вычисления
-	*/
-	public int getResult() {
-		return this.result;
-	}
+    /**
+     Получить результат.
+     @return результат вычисления
+     */
+    public double getResult() {
+        return this.result;
+    }
 
-	/**
-		Очистить результат вычисления
-	*/
-	public void cleanResult() {
-	this.result = 0;	
-}
-	
+    /**
+     Очистить результат вычисления
+     */
+    public void cleanResult() {
+        this.result = 0;
+    }
+
 }
